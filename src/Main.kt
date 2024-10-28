@@ -1,3 +1,12 @@
+class fruit {
+    var color = ""
+    var name = ""
+}
+
 fun main() {
-    println("Hello World!")
+    val MyFruit = fruit()
+    MyFruit.color = "green"
+    MyFruit.name = "Watermelon"
+    println(MyFruit.name)
+    println(MyFruit.color)
 }

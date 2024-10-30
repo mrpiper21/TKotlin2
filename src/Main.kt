@@ -3,6 +3,25 @@ class fruit {
     var name = ""
 }
 
+class myClass {
+    private var name: String = "Bernard Baah"
+
+    fun getName(){
+        println(name)
+    }
+}
+
+typealias User = Triple<String, String, Int>
+
+// nested classes
+class outerClass {
+    private val welcomeMessage: String = "Welcome to to my class"
+    inner class InnerClass{
+        var innerVar = "nested"
+        fun foo()= welcomeMessage
+    }
+}
+
 fun main() {
     val MyFruit = fruit()
     MyFruit.color = "green"
@@ -116,4 +135,57 @@ fun main() {
     println(theMap3)
     theMap3.remove("Chevez")
     println("One Car is sold out from $theMap3")
+
+    var Ben = myClass()
+    Ben.getName()
+
+    // nesting classes
+    var firstClass = outerClass().InnerClass()
+    var greetings = firstClass.foo()
+    println(greetings)
+
+    // Kotlin Type alias
+    val user = userInfo()
+    println(user)
+
+    Person("kwame", 53)
+    Student("Emma", 6)
+
+
+
+}
+
+// kotlin constructor -> A Kotlin class can have a primary constructor and one or more additional secondary constructors. The Kotlin primary constructor initializes the class, whereas the secondary constructor helps to include some extra logic while initializing the class
+// primary constructor
+
+class Person(val _name: String, val _age: Int){
+    var name: String = ""
+    var age: Int =0
+    init {
+        this.name = _name
+        this.age = _age
+        println("Name = $name")
+        println("Age = $age")
+    }
+
+}
+
+// Secondary constractor
+class Student{
+    var name: String = ""
+    var Class: Int = 0
+
+    init {
+        println("intializer Block")
+    }
+
+    constructor(_name: String, _class: Int){
+        this.name = _name
+        this.Class = _class
+        println("Student: $name, Class: $Class")
+    }
+}
+
+fun userInfo(): User {
+    return Triple("Ben", "Baah", 23)
 }
